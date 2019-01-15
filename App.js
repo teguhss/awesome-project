@@ -7,7 +7,12 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, NativeModules, DeviceEventEmitter } from 'react-native';
+import {
+  Platform, StyleSheet, Text, View,
+  requireNativeComponent, NativeModules,
+  DeviceEventEmitter, ViewPropTypes
+} from 'react-native';
+import PropTypes from 'prop-types';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -15,28 +20,40 @@ const instructions = Platform.select({
     'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
-const { ToastExample } = NativeModules;
+const { CustomToast } = NativeModules;
+var iface = {
+  name: 'CustomImageView',
+  propTypes: {
+    src: PropTypes.string,
+    borderRadius: PropTypes.number,
+    resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
+    ...ViewPropTypes, // include the default view properties
+  },
+};
+const CustomImageView = requireNativeComponent('CustomImageView', iface);
 const EVENT_NAME = 'EVENT';
 
 export default class App extends Component {
   componentWillMount() {
     DeviceEventEmitter.addListener(EVENT_NAME, function (e) {
-      ToastExample.show(e.message, ToastExample.LONG);
+      CustomToast.show(e.message, CustomToast.LONG);
     });
   }
 
   render() {
-    ToastExample.testCallback(async (message) => {
-      ToastExample.show(message, ToastExample.LONG);
-      message = await ToastExample.testPromise();
-      ToastExample.show(message, ToastExample.LONG);
-      ToastExample.testEvent(EVENT_NAME);
+    CustomToast.testCallback(async (message) => {
+      CustomToast.show(message, CustomToast.LONG);
+      message = await CustomToast.testPromise();
+      CustomToast.show(message, CustomToast.LONG);
+      CustomToast.testEvent(EVENT_NAME);
     });
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <CustomImageView src={'https://3.bp.blogspot.com/-LlPibkiuaog/WZYmP8MNyXI/AAAAAAAAAFY/2f-L0UOZwjYUn6mceia1Pe5K-OY4Lp4twCLcBGAs/s320/Persebaya%2BSurabaya.jpg'}
+          style={{ width: 320, height: 200 }} />
       </View>
     );
   }

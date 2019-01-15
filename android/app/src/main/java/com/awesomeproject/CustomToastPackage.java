@@ -21,7 +21,7 @@ public class CustomToastPackage implements ReactPackage {
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
-    modules.add(new ToastModule(reactContext));
+    modules.add(new CustomToastModule(reactContext));
     return modules;
   }
 }
