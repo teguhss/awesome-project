@@ -21,16 +21,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 const { CustomToast } = NativeModules;
-var iface = {
-  name: 'CustomImageView',
-  propTypes: {
-    src: PropTypes.string,
-    borderRadius: PropTypes.number,
-    resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
-    ...ViewPropTypes, // include the default view properties
-  },
-};
-const CustomImageView = requireNativeComponent('CustomImageView', iface);
+const CustomImageView = requireNativeComponent('CustomImageView');
 const EVENT_NAME = 'EVENT';
 
 export default class App extends Component {

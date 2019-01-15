@@ -1,4 +1,4 @@
-// CustomToastModule.java
+// CustomToastNativeModule.java
 
 package com.awesomeproject;
 
@@ -17,14 +17,14 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import java.util.Map;
 import java.util.HashMap;
 
-public class CustomToastModule extends ReactContextBaseJavaModule {
+public class CustomToastNativeModule extends ReactContextBaseJavaModule {
 
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
 
   private ReactContext reactContext;
 
-  public CustomToastModule(ReactApplicationContext reactContext) {
+  public CustomToastNativeModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }

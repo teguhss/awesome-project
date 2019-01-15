@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ReactImagePackage implements ReactPackage {
+public class CustomImageViewPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         List<ViewManager> modules = new ArrayList<>();
-        modules.add(new ReactImageManager());
+        modules.add(new CustomImageViewManager());
         return modules;
     }
 

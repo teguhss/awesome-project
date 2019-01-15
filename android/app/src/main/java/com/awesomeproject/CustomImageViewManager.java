@@ -15,7 +15,7 @@ import java.net.URL;
 
 import javax.annotation.Nullable;
 
-public class ReactImageManager extends SimpleViewManager<ReactImageView> {
+public class CustomImageViewManager extends SimpleViewManager<ReactImageView> {
     /* Interface Listener to start loading the image if the source is set */
     private interface ImgStartListener {
         void startLoading(String imgUrl);
@@ -63,7 +63,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
                     final Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
                     setImage(bmp, handler, reactImageView);
                 } catch (Exception e) {
-                    Log.e("ReactImageManager", "Error : " + e.getMessage());
+                    Log.e("CustomImageViewManager", "Error : " + e.getMessage());
                 }
             }
         }).start();

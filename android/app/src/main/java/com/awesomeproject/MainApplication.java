@@ -2,8 +2,6 @@ package com.awesomeproject;
 
 import android.app.Application;
 
-import com.awesomeproject.CustomToastPackage;
-
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -25,8 +23,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
-        new CustomToastPackage(),
-        new ReactImagePackage()
+        new CustomToastNativePackage(),
+        new CustomImageViewPackage()
       );
     }
 

@@ -1,4 +1,4 @@
-// CustomToastPackage.java
+// CustomToastNativePackage.java
 
 package com.awesomeproject;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CustomToastPackage implements ReactPackage {
+public class CustomToastNativePackage implements ReactPackage {
 
   @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
@@ -21,7 +21,7 @@ public class CustomToastPackage implements ReactPackage {
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
-    modules.add(new CustomToastModule(reactContext));
+    modules.add(new CustomToastNativeModule(reactContext));
     return modules;
   }
 }
