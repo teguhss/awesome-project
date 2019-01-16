@@ -24,7 +24,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
         new CustomToastNativePackage(),
-        new CustomImageViewPackage()
+        new CustomImageViewPackage(),
+        new AdsViewPackage()
       );
     }
 
